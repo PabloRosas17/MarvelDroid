@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<lint>
+    <issue id="UnusedResources" severity="error">
+    </issue>
+    <issue id="InvalidPackage" severity="error">
+    </issue>
+</lint>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/colorMarvelBurgundy" android:state_enabled="false"/>
+    <item android:drawable="@color/colorMarvelBurgundy" android:state_pressed="true"/>
+</selector>

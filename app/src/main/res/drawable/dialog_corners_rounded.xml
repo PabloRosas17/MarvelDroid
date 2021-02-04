@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/colorLightPrimary"/>
+    <corners
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp"
+        android:bottomRightRadius="15dp"
+        android:bottomLeftRadius="15dp" />
+</shape>

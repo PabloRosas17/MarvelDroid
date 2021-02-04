@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="mPresenter"
+            type="organization.fizzy.marveldroid.view.presenter.ui.PresenterSettingsItem"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_view_settings_layout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_item_settings">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/list_item_settings_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start|center"
+                android:text="Default-Title"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/colorLightPrimary"
+                app:layout_constraintStart_toStartOf="@id/gd_settings_05_ver"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/list_item_settings_value"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="end|center"
+                android:text="Default-Value"
+                android:textStyle="normal"
+                android:textSize="12sp"
+                android:textColor="@color/colorLightPrimary"
+                app:layout_constraintEnd_toEndOf="@id/gd_settings_95_ver"/>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gd_settings_05_ver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gd_settings_95_ver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,77 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+# Ref: https://circleci.com/docs/2.0/using-orbs/
+
+version: 2.1
+
+references:
+
+  cache_key: &cache_key
+    key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+  restore_cache: &restore_cache
+    restore_cache:
+      <<: *cache_key
+  save_cache: &save_cache
+    save_cache:
+      <<: *cache_key
+      paths:
+        - ~/.gradle
+  workspace: &workspace
+    ~/code
+  android_config: &android_config
+    working_directory: *workspace
+    docker:
+      - image: circleci/android:api-29
+    environment:
+      JVM_OPTS: -Xmx3200m
+      GRADLE_OPTS: -Xmx3200m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
+  local_properties: &local_properties
+    run:
+      name: generate local.properties
+      command: touch local.properties | echo 'PublicApiKey="Zero"' >> local.properties | echo 'MarvelPublicApiKey="Zero"' >> local.properties | echo 'MarvelPrivateApiKey="Zero"' >> local.properties
+  export_gservices_key: &export_gservices_key
+    run:
+      name: Export Google Services key environment variable
+      command: echo 'export GOOGLE_SERVICES_KEY="$GOOGLE_SERVICES_KEY"' >> $BASH_ENV
+  decode_gservices_key: &decode_gservices_key
+    run:
+      name: Decode Google Services key
+      command: echo $GOOGLE_SERVICES_KEY | base64 -di > app/google-services.json
+  export_android_key: &export_android_key
+    run:
+      name: Export Android key store environment variable
+      command: echo 'export ANDROID_KEY_STORE="$ANDROID_KEY_STORE"' >> $BASH_ENV
+  decode_android_key: &decode_android_key
+    run:
+      name: Decode Android key store
+      command: echo $ANDROID_KEY_STORE | base64 -di > key-store.jks
+
+orbs:
+  android: circleci/android@0.2.0
+
+jobs:
+  build_debug:
+    <<: *android_config
+    steps:
+      - checkout
+      - *restore_cache
+      - *local_properties
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies --stacktrace
+      - *save_cache
+      - *export_gservices_key
+      - *decode_gservices_key
+      - run:
+          name: build gradle
+          command: ./gradlew build --stacktrace
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
+
+workflows:
+  build:
+    jobs:
+      - build_debug

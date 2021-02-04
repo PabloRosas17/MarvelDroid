@@ -1,0 +1,99 @@
+/*
+ * 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+ * Source Timestamps exist under: https://github.com/PabloRosas17
+ * Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+ */
+
+buildscript {
+    ext.gradle_version = '4.0.1'
+    ext.google_services_version = '4.3.3'
+    ext.kotlin_version = '1.3.72'
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "com.google.gms:google-services:$google_services_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://sdk.squareup.com/public/android' }
+    }
+}
+
+ext {
+    annotation_ver = "1.1.0"
+    build_tools_ver = "28.0.3"
+    card_view_ver = "1.0.0"
+    constraint_layout_ver = "2.0.0-beta4"
+    databinding_ver = "4.1.0-alpha08"
+    firebase_analytics_ver = "17.4.0"
+    firebase_auth_ver = "19.3.1"
+    firebase_core_ver = "17.4.0"
+    firebase_crash_ver = "16.2.1"
+    firebase_database_ver = "19.0.0"
+    firebase_functions_ver = "19.0.2"
+    firebase_messaging_ver = "20.1.6"
+    fragments_ktx_ver = "1.2.4"
+    google_auth_ver = "18.0.0"
+    google_dagger_ver = "2.27"
+    google_dagger_compiler_ver = "2.27"
+    google_identify_ver = "17.0.0"
+    google_location_ver = "17.0.0"
+    google_material_design_ver = "1.2.0-alpha06"
+    google_oauth2_ver = "0.20.0"
+    google_plus_ver = "17.0.0"
+    junit_ver = "4.13"
+    ktx_core_ver = "1.3.0-rc01"
+    lifecycle_nav_components = "2.3.0"
+    lifecycle_common_java8_ver = "2.3.0-alpha02"
+    lifecycle_compiler_ver = "2.2.0"
+    lifecycle_livedata_ktx_ver = "2.3.0-alpha02"
+    lifecycle_reactivestreams_ktx_ver = "2.3.0-alpha02"
+    lifecycle_viewmodel_ktx_ver = "2.3.0-alpha02"
+    lifecycle_vm_savedstate_ver = "2.3.0-alpha02"
+    lifecycle_runtime_ktx_ver = "2.3.0-alpha02"
+    mockito_core_ver = "2.21.0"
+    room_ver = "2.2.5"
+    rxjava_ver = "3.0.2"
+    square_okhttp3_okhttp_ver = "4.6.0"
+    square_okhttp3_interceptor_ver = "4.6.0"
+    square_picasso_ver = "2.71828"
+    square_retrofit2_gson_ver = "2.7.2"
+    square_retrofit2_converter_moshi_ver = "2.8.1"
+    square_retrofit2_retrofit_ver = "2.8.1"
+    square_threeten_ver = "1.2.4"
+    test_arch_core_ver = "2.1.0"
+    test_core_ver = "1.3.0-beta01"
+    test_core_ktx_ver = "1.3.0-beta01"
+    test_espresso_core_ver = "3.3.0-alpha04"
+    test_espresso_intent_ver = "3.3.0-alpha04"
+    test_junit_ver = "1.1.2-beta01"
+    test_junit_ktx_ver = "1.1.2-beta01"
+    test_robolectric_ver = "4.3.1"
+    test_runner_ver = "1.3.0-beta01"
+    test_truth_ver = "1.3.0-alpha02"
+    twitter_ver = "3.1.0"
+    twitter_core_ver = "3.1.1"
+    viewpager2_ver = "1.1.0-alpha01"
+}
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

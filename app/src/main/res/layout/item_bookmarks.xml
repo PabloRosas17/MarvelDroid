@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="mPresenter"
+            type="organization.fizzy.marveldroid.view.presenter.ui.PresenterBookmarksItem"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gd_bookmarks_75_ver"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/list_item_bookmarks">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/item_bookmark_date_added"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="[Date Added]"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorLightPrimary"
+                    android:gravity="center" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/item_bookmark_comic_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/item_bookmark_date_added"
+                    android:text="C.Name"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorLightPrimary"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/item_bookmark_comic_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/item_bookmark_comic_name"
+                    android:text="C.Number"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorLightPrimary"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/item_bookmark_comic_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/item_bookmark_comic_number"
+                    android:text="C.Price"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorLightPrimary"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gd_bookmarks_75_ver"
+            app:layout_constraintEnd_toEndOf="@id/gd_bookmarks_75_ver"
+            android:backgroundTint="@color/colorMarvelRed"
+            app:icon="@drawable/baseline_add_box_white_18dp"
+            app:iconGravity="start|textStart"
+            app:iconSize="15dp"
+            app:cornerRadius="35dp"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_bookmarks_10_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.10" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_bookmarks_75_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_bookmarks_90_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

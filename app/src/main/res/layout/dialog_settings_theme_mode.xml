@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="mPresenter"
+            type="organization.fizzy.marveldroid.view.presenter.ui.PresenterSettingsDialogs" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_layout_dialog_theme_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/theme_mode_curlbl_tv"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/cutiepatootie"
+            android:text="current theme:"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorLightSecondary"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/theme_mode_curval_tv"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/theme_mode_curlbl_tv"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/cutiepatootie"
+            android:text="* * * * *"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorLightSecondary"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/theme_mode_darklbl_tv"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/theme_mode_curlbl_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/cutiepatootie"
+            android:text="dark theme"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorLightSecondary"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/theme_mode_darkval_radio_btn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/theme_mode_curval_tv"
+            app:layout_constraintStart_toEndOf="@+id/theme_mode_darklbl_tv"
+            android:buttonTint="@color/colorLightSecondary"
+            android:onClick="@{()->mPresenter.fireDialogDarkThemePresenter()}"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/theme_mode_lightlbl_tv"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/theme_mode_darkval_radio_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/cutiepatootie"
+            android:text="light theme"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorLightSecondary"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/theme_mode_lightval_radio_btn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/theme_mode_darkval_radio_btn"
+            app:layout_constraintStart_toEndOf="@+id/theme_mode_darklbl_tv"
+            android:buttonTint="@color/colorLightSecondary"
+            android:onClick="@{()->mPresenter.fireDialogLightThemePresenter()}"/>/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

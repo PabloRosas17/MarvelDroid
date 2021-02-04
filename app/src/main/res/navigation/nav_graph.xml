@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_registration">
+    <fragment
+        android:id="@+id/nav_main_activity"
+        android:name="organization.fizzy.marveldroid.view.ViewMainActivity"
+        android:label="Blank"
+        tools:layout="@layout/layout_main_activity">
+        <action
+            android:id="@+id/action_nav_main_fragment_to_nav_registration"
+            app:destination="@id/nav_registration" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_registration"
+        android:name="organization.fizzy.marveldroid.view.screens.fragments.ViewRegistration"
+        android:label="Blank"
+        tools:layout="@layout/layout_view_registration">
+        <action
+            android:id="@+id/action_nav_registration_to_nav_account"
+            app:destination="@id/nav_account" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="organization.fizzy.marveldroid.view.screens.fragments.ViewAccount"
+        android:label="Blank"
+        tools:layout="@layout/layout_view_account">
+        <action
+            android:id="@+id/action_nav_account_to_nav_comics"
+            app:destination="@id/nav_comics" />
+        <action
+            android:id="@+id/action_nav_account_to_viewBookmarks"
+            app:destination="@id/viewBookmarks" />
+        <action
+            android:id="@+id/action_nav_account_to_viewSettings"
+            app:destination="@id/viewSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_comics"
+        android:name="organization.fizzy.marveldroid.view.screens.fragments.ViewComics"
+        android:label="Blank"
+        tools:layout="@layout/layout_view_comics"/>
+    <fragment
+        android:id="@+id/viewBookmarks"
+        android:name="organization.fizzy.marveldroid.view.screens.fragments.ViewBookmarks"
+        android:label="ViewBookmarks" />
+    <fragment
+        android:id="@+id/viewSettings"
+        android:name="organization.fizzy.marveldroid.view.screens.fragments.ViewSettings"
+        android:label="ViewSettings" />
+</navigation>
+

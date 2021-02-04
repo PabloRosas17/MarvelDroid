@@ -1,0 +1,227 @@
+
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<resources>
+    <!-- A style is a collection of attributes that specify the appearance for a single View. -->
+    <style name="MtrlTheme.MtrlBtn" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:alpha">0.85</item>
+        <item name="backgroundTint">@color/colorLightSecondary</item>
+        <item name="android:textColor">@color/colorGhostWhite</item>
+    </style>
+    <style name="MtrlTheme.BnrView" parent="@style/Widget.MaterialComponents.TextView">
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@color/colorMarvelWhite</item>
+        <item name="android:background">@color/colorCaptainAmericaDarkBlue</item>
+    </style>
+    <style name="MtrlTheme.BnrBtn" parent="@style/Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/marvel_logo_hor</item>
+    </style>
+    <style name="MtrlTheme.LightMtrlBtmNav" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/colorLightSecondary</item>
+        <item name="itemIconTint">@drawable/slc_item_color</item>
+        <item name="itemTextColor">@drawable/slc_item_color</item>
+    </style>
+    <style name="MtrlTheme.DarkMtrlBtmNav" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/colorDarkSecondary</item>
+        <item name="itemIconTint">@drawable/slc_item_color</item>
+        <item name="itemTextColor">@drawable/slc_item_color</item>
+    </style>
+    <style name="MtrlTheme.TextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">@color/colorGhostWhite</item>
+        <item name="android:textColorHint">@color/colorGhostWhite</item>
+        <item name="boxStrokeColor">@color/colorLightSecondary</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxBackgroundColor">@color/colorLightSecondary</item>
+        <item name="boxBackgroundMode">filled</item>
+    </style>
+    <style name="MtrlTheme.MtrlDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlTheme.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlTheme.MtrlPositiveBtn" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="backgroundTint">@color/colorLightPrimary</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+    <style name="MtrlTitleTextStyle" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/colorLightPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="MtrlBodyTextStyle" parent="@style/MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/colorLightPrimary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="MtrlTheme.CardViewRoundedCornersBtmRight" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardViewRoundedCornersBtmRight</item>
+    </style>
+    <style name="CardViewRoundedCornersBtmRight" parent="">
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomRight">250dp</item>
+    </style>
+    <style name="MtrlTheme.CardViewRoundedCornersBtmLeft" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardViewRoundedCornersBtmLeft</item>
+    </style>
+    <style name="CardViewRoundedCornersBtmLeft" parent="">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">250dp</item>
+    </style>
+    <style name="MtrlTheme.CardViewRoundedCornersTopLeftRight" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardViewRoundedCornersTopLeftRight</item>
+    </style>
+    <style name="CardViewRoundedCornersTopLeftRight" parent="">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopRight">50dp</item>
+        <item name="cornerSizeTopLeft">50dp</item>
+    </style>
+    <style name="MtrlTheme.CardViewRoundedCornersTopLeftRightBtmLeft" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardViewRoundedCornersTopLeftRightBtmLeft</item>
+    </style>
+    <style name="CardViewRoundedCornersTopLeftRightBtmLeft" parent="">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeTopRight">50dp</item>
+        <item name="cornerSizeTopLeft">50dp</item>
+        <item name="cornerSizeBottomLeft">50dp</item>
+    </style>
+    <style name="MtrlTheme.CardViewRoundedCornersItemComicsRoot" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardViewRoundedCornersItemComicsRoot</item>
+    </style>
+    <style name="CardViewRoundedCornersItemComicsRoot" parent="">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeTopRight">50dp</item>
+        <item name="cornerSizeTopLeft">50dp</item>
+        <item name="cornerSizeBottomLeft">50dp</item>
+        <item name="cornerSizeBottomRight">50dp</item>
+    </style>
+    <style name="MtrlTheme.CardViewRoundedCornersItemComicsBtm" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardViewRoundedCornersItemComicsBtm</item>
+    </style>
+    <style name="CardViewRoundedCornersItemComicsBtm" parent="">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeTopRight">25dp</item>
+        <item name="cornerSizeTopLeft">25dp</item>
+        <item name="cornerSizeBottomLeft">25dp</item>
+        <item name="cornerSizeBottomRight">25dp</item>
+    </style>
+    <style name="DarkMaterialCardView" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="android:backgroundTint">#121212</item>
+    </style>
+    <style name="MtrlTheme.LogInFab" parent="@style/Widget.MaterialComponents.FloatingActionButton">
+        <item name="tint">@color/colorGhostWhite</item>
+        <item name="backgroundTint">@color/colorLightPrimary</item>
+        <item name="rippleColor">@color/colorLightPrimaryVariant</item>
+        <item name="fabSize">mini</item>
+    </style>
+    <style name="MtrlTheme.ActAddBtn" parent="@style/Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#780A0F</item>
+    </style>
+    <style name="MtrlTheme.ActUnlockBtn" parent="@style/Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#780A0F</item>
+    </style>
+    <style name="MtrlTheme.ActBackDropBtn" parent="@style/Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="icon">@drawable/baseline_drag_handle_white_36dp</item>
+        <item name="iconTint">@color/colorGhostWhite</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <style name="MtrlTheme.FacebookButton" parent="@style/Widget.MaterialComponents.Button">
+<!--        <item name="backgroundTint">#3B5998</item>-->
+    </style>
+    <style name="MtrlTheme.GoogleButton" parent="@style/Widget.MaterialComponents.Button">
+<!--        <item name="backgroundTint">#4285F4</item>-->
+    </style>
+    <style name="SettingsFields">
+        <item name='android:textStyle'>bold</item>
+        <item name='android:textSize'>14sp</item>
+        <item name='android:textColor'>@color/colorTextBlack</item>
+    </style>
+    <style name="MtrlThemeLight.IncorrectDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlThemeLight.ThemeModeDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlThemeLight.AccountUsernameDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlThemeLight.AccountPasswordDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlThemeLight.FeatureRequestDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlThemeLight.TermsOfServiceDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlThemeLight.FeedbackDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlThemeLight.UnlockDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlLightTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlLightBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MtrlThemeLight.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <style name="MtrlLightTitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/colorLightPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="MtrlLightBodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/colorLightPrimary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="MtrlThemeLight.MtrlPositiveBtn" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="backgroundTint">@color/colorLightPrimary</item>
+    </style>
+</resources>

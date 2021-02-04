@@ -1,0 +1,231 @@
+
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'com.google.gms.google-services'
+
+/*
+ * 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+ * Source Timestamps exist under: https://github.com/PabloRosas17
+ * Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+ */
+
+/* build definition to access local properties */
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+/* using dagger suggests to allow javac to print more than 100 errors, def error amount is set to whatever */
+def daggerPrintErrorAmount = "500"
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xmaxerrs" << daggerPrintErrorAmount
+    }
+}
+
+android {
+    /* compileSdkVersion what version of android to compile the app with */
+    /* buildToolsVersion component of android sdk required to build the app */
+    compileSdkVersion 29
+    buildToolsVersion rootProject.build_tools_ver
+    compileOptions {
+        /* java compiler options
+        * incremental whether Java compilation should be incremental or not.
+        * sourceCompatibility language level of the java source code.
+        * targetCompatibility version of the generated Java bytecode.*/
+        /* incremental true */
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        /* additional compilation options
+         * jvmTarget Target version of the generated JVM bytecode */
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    defaultConfig {
+        /* product flavors configuration is a wise choice,
+         * debug { ... }
+         * release { ... }
+         * reference: https://developer.android.com/studio/build/build-variants
+         * applicationId the application id
+         * minSdk min sdk for the app
+         * targetSdkVersion sdk the app designed to run on
+         * maxSdkVersion max sdk for the app
+         * versionCode used to determine if one version is higher than another
+         * versionName version name shown to users
+         * testInstrumentationRunner to use JUnit 4 test classes
+         * buildConfigField customized fields accessed during build time
+         */
+        applicationId "organization.fizzy.marveldroid"
+        minSdkVersion 23
+        targetSdkVersion 29
+        maxSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "PUBLIC_API_KEY", localProperties['PublicApiKey']
+        buildConfigField "String", "MARVEL_PUBLIC_API_KEY", localProperties['MarvelPublicApiKey']
+        buildConfigField "String", "MARVEL_PRIVATE_API_KEY", localProperties['MarvelPrivateApiKey']
+        buildConfigField 'String', 'BASE_URL', '""'
+        /* javaCompileOptions as DSL object for java compile options.
+        * annotationProcessorOptions for configuration the annotation processor. */
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
+    }
+    /* flavorDimensions "SOME_STRING" see the documentation when we are ready for this */
+    buildTypes {
+        /* sever as the debug flavor
+         * minifyEnabled removal of unused java code (dependencies)
+         * proguardFiles proguard configurations file plugins should use */
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        /* serve as the release flavor
+         * crunchPngs will optimize png resources not already compressed
+         * minifyEnabled removal of unused java code (dependencies)
+         * shrinkResources shrinks unused resources
+         * proguardFiles proguard configurations file plugins should use */
+        release {
+            crunchPngs false
+            minifyEnabled false // disable because of dynamic features module
+            shrinkResources false  // disable because of dynamic features module
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    androidExtensions {
+        /* experimental features for kotlin */
+        experimental = true
+    }
+    /* Data binding helps you write declarative layouts
+     * and minimize the glue code necessary to bind your application logic and layouts. */
+    dataBinding {
+        /* bind the application data to the layouts in a concise way */
+        enabled = true
+    }
+    packagingOptions {
+        /* paths that match exclude patterns will not be included in the apk */
+        exclude 'META-INF/DEPENDENCIES'
+        exclude("META-INF/*.kotlin_module")
+    }
+    lintOptions {
+        /* lint configuration to customize builds
+         * lintConfig will change severity for properties defined
+         * warningsAsErrors will display during builds
+         * aboutOnError don't necessarily stop building, continue
+         * absolutePaths will not print in full. print relative to where invoked
+         * explainIssues prints out during build time errors
+         * ignoreWarning will print out warning issues */
+        lintConfig file('lint.xml')
+        /* warningsAsErrors true */
+        abortOnError false
+        absolutePaths false
+        explainIssues true
+        ignoreWarnings false
+    }
+    testOptions {
+        unitTests {
+            /* unit test can use android resources, assets, manifest */
+            includeAndroidResources = true
+            all {
+                /* JVM options for heap size during testing */
+                minHeapSize = "128m"
+                maxHeapSize = "1024m"
+            }
+        }
+    }
+}
+
+dependencies {
+    /* System libraries for AndroidX */
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /* Kotlin JDK Support */
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    /* Reactive libraries: RxJava */
+    implementation 'io.reactivex.rxjava3:rxjava:' + rootProject.rxjava_ver
+
+    /* Twitter Libraries: Twitter, Core, Ui, Compose, Mopub */
+    implementation 'com.twitter.sdk.android:twitter:' + rootProject.twitter_ver
+    implementation 'com.twitter.sdk.android:twitter-core:' + rootProject.twitter_core_ver
+    implementation 'com.twitter.sdk.android:tweet-ui:3.1.1'
+    implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
+    implementation 'com.twitter.sdk.android:twitter-mopub:3.1.1'
+
+    /* AndroidX libraries : ViewPager2, Constraint Layout, Ktx Architecture Components, DataBinding, Fragments */
+    implementation 'androidx.core:core-ktx:' + rootProject.ktx_core_ver
+    implementation 'androidx.cardview:cardview:' + rootProject.card_view_ver
+    implementation 'androidx.navigation:navigation-ui-ktx:' + rootProject.lifecycle_nav_components
+    implementation 'androidx.navigation:navigation-fragment-ktx:' + rootProject.lifecycle_nav_components
+    implementation 'androidx.fragment:fragment-ktx:' + rootProject.fragments_ktx_ver
+    implementation 'androidx.viewpager2:viewpager2:' + rootProject.viewpager2_ver
+    implementation 'androidx.annotation:annotation:' + rootProject.annotation_ver
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:' + rootProject.lifecycle_runtime_ktx_ver
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:' + rootProject.lifecycle_livedata_ktx_ver
+    implementation 'androidx.constraintlayout:constraintlayout:' + rootProject.constraint_layout_ver
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:' + rootProject.lifecycle_viewmodel_ktx_ver
+    implementation 'androidx.lifecycle:lifecycle-common-java8:' + rootProject.lifecycle_common_java8_ver
+    implementation 'androidx.lifecycle:lifecycle-reactivestreams-ktx:' + rootProject.lifecycle_reactivestreams_ktx_ver
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:' + rootProject.lifecycle_vm_savedstate_ver
+    kapt 'androidx.lifecycle:lifecycle-compiler:' + rootProject.lifecycle_compiler_ver
+    kapt 'com.android.databinding:compiler:' + rootProject.databinding_ver
+
+    /* Google libraries : Dagger, Material, Auth, Location, Firebase, Functions */
+    implementation 'com.google.dagger:dagger:' + rootProject.google_dagger_ver
+    implementation 'com.google.firebase:firebase-auth:' + rootProject.firebase_auth_ver
+    implementation 'com.google.firebase:firebase-core:' + rootProject.firebase_core_ver
+    implementation 'com.google.firebase:firebase-crash:' + rootProject.firebase_crash_ver
+    implementation 'com.google.android.material:material:' + rootProject.google_material_design_ver
+    implementation 'com.google.android.gms:play-services-auth:' + rootProject.google_auth_ver
+    implementation 'com.google.android.gms:play-services-plus:' + rootProject.google_plus_ver
+    implementation 'com.google.firebase:firebase-database:' + rootProject.firebase_database_ver
+    implementation 'com.google.firebase:firebase-functions:' + rootProject.firebase_functions_ver
+    implementation 'com.google.firebase:firebase-analytics:' + rootProject.firebase_analytics_ver
+    implementation 'com.google.firebase:firebase-messaging:' + rootProject.firebase_messaging_ver
+    implementation 'com.google.android.gms:play-services-identity:' + rootProject.google_identify_ver
+    implementation 'com.google.auth:google-auth-library-oauth2-http:' + rootProject.google_oauth2_ver
+    implementation 'com.google.android.gms:play-services-location:' + rootProject.google_location_ver
+    kapt 'com.google.dagger:dagger-compiler:' + rootProject.google_dagger_compiler_ver
+
+    /* Square libraries : Gson, Picasso, Retrofit, Moshi, OkHTTP */
+    implementation 'com.squareup.picasso:picasso:' + rootProject.square_picasso_ver
+    implementation 'com.squareup.okhttp3:okhttp:' + rootProject.square_okhttp3_okhttp_ver
+    implementation 'com.jakewharton.threetenabp:threetenabp:' + rootProject.square_threeten_ver
+    implementation 'com.squareup.retrofit2:retrofit:' + rootProject.square_retrofit2_retrofit_ver
+    implementation 'com.squareup.retrofit2:converter-gson:' + rootProject.square_retrofit2_gson_ver
+    implementation 'com.squareup.okhttp3:logging-interceptor:' + rootProject.square_okhttp3_interceptor_ver
+    implementation 'com.squareup.retrofit2:converter-moshi:' + rootProject.square_retrofit2_converter_moshi_ver
+
+    /* Room components */
+    implementation "androidx.room:room-runtime:$rootProject.room_ver"
+    implementation "androidx.room:room-ktx:" + rootProject.room_ver
+    kapt "androidx.room:room-compiler:$rootProject.room_ver"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.room_ver"
+
+    /* Testing libraries: Junit, Espresso, Roboelectric, Mockito   */
+    androidTestImplementation 'androidx.test:core:' + rootProject.test_core_ver
+    androidTestImplementation 'androidx.test:runner:' + rootProject.test_runner_ver
+    androidTestImplementation 'androidx.test.ext:junit:' + rootProject.test_junit_ver
+    androidTestImplementation 'androidx.test:core-ktx:' + rootProject.test_core_ktx_ver
+    androidTestImplementation 'androidx.test.ext:junit-ktx:' + rootProject.test_junit_ktx_ver
+    androidTestImplementation 'androidx.test.espresso:espresso-core:' + rootProject.test_espresso_core_ver
+    testImplementation 'androidx.test.espresso:espresso-intents:' + rootProject.test_espresso_intent_ver
+    testImplementation 'androidx.arch.core:core-testing:' + rootProject.test_arch_core_ver
+    testImplementation 'org.robolectric:robolectric:' + rootProject.test_robolectric_ver
+    androidTestImplementation 'androidx.navigation:navigation-testing:' + rootProject.lifecycle_nav_components
+    testImplementation 'org.mockito:mockito-core:' + rootProject.mockito_core_ver
+    testImplementation 'androidx.test.ext:truth:' + rootProject.test_truth_ver
+    implementation 'com.android.support:cardview-v7:28.0.0'
+}

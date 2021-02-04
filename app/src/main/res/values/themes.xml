@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<resources>
+    <!-- A theme is a type of style that's applied to an entire app, activity, or view hierarchy—not just an individual view. -->
+    <style name="LightThemeDayNight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorAccent">@color/colorLightAccent</item>
+        <item name="colorPrimary">@color/colorLightPrimary</item>
+        <item name="android:statusBarColor">@color/colorLightSecondary</item>
+        <item name="colorPrimaryDark">@color/colorLightPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorLightPrimaryDark</item>
+        <item name="colorSecondary">@color/colorLightSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorLightSecondaryVariant</item>
+        <item name="background">@color/colorDarkSecondary</item>
+        <item name="colorSurface">@color/colorLightSurface</item>
+        <item name="colorError">@color/colorLightError</item>
+        <item name="colorOnPrimary">@color/colorLightOnPrimary</item>
+        <item name="colorOnSecondary">@color/colorLightOnSecondary</item>
+        <item name="colorOnBackground">@color/colorLightOnBackground</item>
+        <item name="colorOnSurface">@color/colorLightOnSurface</item>
+        <item name="colorOnError">@color/colorLightOnError</item>
+        <item name="bottomNavigationStyle">@style/MtrlTheme.LightMtrlBtmNav</item>
+    </style>
+    <style name="DarkThemeDayNight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorAccent">@color/colorDarkAccent</item>
+        <item name="colorPrimary">@color/colorDarkPrimary</item>
+        <item name="android:statusBarColor">@color/colorDarkSecondary</item>
+        <item name="colorPrimaryDark">@color/colorDarkPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorDarkPrimaryDark</item>
+        <item name="colorSecondary">@color/colorDarkSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorDarkSecondaryVariant</item>
+        <item name="background">@color/colorDarkBackground</item>
+        <item name="colorSurface">@color/colorDarkNight</item>
+        <item name="colorError">@color/colorDarkError</item>
+        <item name="colorOnPrimary">@color/colorDarkOnPrimary</item>
+        <item name="colorOnSecondary">@color/colorDarkOnSecondary</item>
+        <item name="colorOnBackground">@color/colorDarkNight</item>
+        <item name="colorOnSurface">@color/colorDarkNight</item>
+        <item name="colorOnError">@color/colorDarkOnError</item>
+        <item name="bottomNavigationStyle">@style/MtrlTheme.DarkMtrlBtmNav</item>
+    </style>
+</resources>

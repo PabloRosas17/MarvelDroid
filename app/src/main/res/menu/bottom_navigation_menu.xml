@@ -1,0 +1,25 @@
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_menu_account"
+        android:title="Account"
+        android:icon="@drawable/baseline_account_circle_black_18dp"
+        app:showAsAction="ifRoom|withText"
+        android:enabled="false"
+        />
+    <item
+        android:id="@+id/action_menu_comics"
+        android:title="Comics"
+        android:icon="@drawable/baseline_book_black_18dp"
+        app:showAsAction="ifRoom|withText"
+        android:enabled="false"
+        />
+</menu>
+

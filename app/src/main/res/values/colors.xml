@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 2020 MarvelDroid , Attribution Images belong to Marvel Entertainment
+  ~ Source Timestamps exist under: https://github.com/PabloRosas17
+  ~ Written by Jose Pablo Rosas  <pablo.rosas.0170@gmail.com>, January 2020
+  -->
+
+<resources>
+    <!-- Light Theme Palette -->
+    <color name="colorLightAccent">#FFFFFF</color>
+    <color name="colorLightPrimaryDark">#000132</color>
+    <color name="colorLightSecondaryDark">#480000</color>
+    <color name="colorLightPrimary">#002d5c</color>
+    <color name="colorLightPrimaryVariant">#3b558a</color>
+    <color name="colorLightSecondary">#780A0F</color>
+    <color name="colorLightSecondaryVariant">#ad4035</color>
+    <color name="colorLightBackground">#F0F0F0</color>
+    <color name="colorLightSurface">#FFFFFF</color>
+    <color name="colorLightError">#ED1D24</color>
+    <color name="colorLightOnPrimary">#FFFFFF</color>
+    <color name="colorLightOnSecondary">#FFFFFF</color>
+    <color name="colorLightOnBackground">#FFFFFF</color>
+    <color name="colorLightOnSurface">#FFFFFF</color>
+    <color name="colorLightOnError">#ED1D24</color>
+
+    <!-- Dark Theme Palette -->
+    <color name="colorDarkAccent">#121212</color>
+    <color name="colorDarkPrimaryDark">#121212</color>
+    <color name="colorDarkSecondaryDark">#000000</color>
+    <color name="colorDarkPrimary">#121212</color>
+    <color name="colorDarkPrimaryVariant">#121212</color>
+    <color name="colorDarkSecondary">#000000</color>
+    <color name="colorDarkSecondaryVariant">#000000</color>
+    <color name="colorDarkBackground">#121212</color>
+    <color name="colorDarkSurface">#FFFFFF</color>
+    <color name="colorDarkError">#CF6679</color>
+    <color name="colorDarkOnPrimary">#121212</color>
+    <color name="colorDarkOnSecondary">#000000</color>
+    <color name="colorDarkOnBackground">#FFFFFF</color>
+    <color name="colorDarkOnSurface">#FFFFFF</color>
+    <color name="colorDarkOnError">#000000</color>
+
+    <!-- Generic Palette -->
+    <color name="colorDark">#1E1E1E</color>
+    <color name="colorLight">#F0F0F0</color>
+    <color name="colorDisabled">#D3D3D3</color>
+
+    <!-- Marvel Palette -->
+    <color name="colorMarvelRed">#ED1D24</color>
+    <color name="colorMarvelBurgundy">#780A0F</color>
+    <color name="colorMarvelWhite">#FFFFFF</color>
+    <color name="colorMarvelBlue">#518CCA</color>
+    <color name="colorCaptainAmericaLightBlue">#0000ff</color>
+    <color name="colorCaptainAmericaDarkBlue">#002d5c</color>
+    <color name="colorCaptainAmericaGray">#a5a5ab</color>
+    <color name="colorCaptainAmericaWhite">#f0f0f0</color>
+
+    <!-- Application Palette -->
+    <color name="colorDarkNight">#121212</color>
+    <color name="colorGhostWhite">#F0F0F0</color>
+    <color name="colorTouchPink">#F6E6E9</color>
+    <color name="colorTextBlack">#B2000000</color>
+    <color name="colorTextBlue">#03A9F4</color>
+</resources>
